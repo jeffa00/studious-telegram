@@ -6,6 +6,9 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using ApplicationCore.Interfaces;
+using ApplicationCore.Entities;
+using Infrastructure;
 
 namespace StudiousTelegramManager
 {
@@ -22,6 +25,7 @@ namespace StudiousTelegramManager
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc();
+            services.AddScoped<ITelegramRepository, TelegramRepositoryFs>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
